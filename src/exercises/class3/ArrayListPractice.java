@@ -18,7 +18,6 @@ public class ArrayListPractice {
 //        tenIntegers.add(65);
 //        tenIntegers.add(94);
 
-
         System.out.println(tenIntegers);
         System.out.println(sumEven(tenIntegers));
     }
