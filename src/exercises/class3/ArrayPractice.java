@@ -1,4 +1,4 @@
-package exercises;
+package exercises.class3;
 
 import java.util.Arrays;
 
@@ -14,7 +14,7 @@ public class ArrayPractice {
         System.out.println(Arrays.toString(words));
 
         String[] sentences = phrase.split("\\.");
-        System.out.println(Arrays.toString(sentences));
+
 
     }
 }
