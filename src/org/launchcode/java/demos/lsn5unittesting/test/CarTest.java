@@ -27,6 +27,8 @@ public class CarTest {
     public void testInitialGasTank(){
 //        Car test_car = new Car ("Toyota","Prius", 10, 50 );
         assertEquals(10, test_car.getGasTankLevel(), .001);
+        assertFalse(test_car.getGasTankLevel() == 0);
+        assertTrue(test_car.getGasTankLevel() == 10);
     }
     //TODO: gasTankLevel is accurate after driving within tank range
 
