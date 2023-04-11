@@ -40,10 +40,12 @@ public class CarTest {
 
 
     //TODO: gasTankLevel is accurate after attempting to drive past tank range
-//    @Test
-//    public void testGasTankAfterExceedingTankRange(){
-//
-//    }
+    @Test
+    public void testGasTankAfterExceedingTankRange(){
+        test_car.drive (600);
+        assertEquals(500, test_car.getOdometer(),.001);
+
+    }
     //TODO: can't have more gas than tank size, expect an exception
     @Test(expected = IllegalArgumentException.class)
     public void testGasOverfillException() {
