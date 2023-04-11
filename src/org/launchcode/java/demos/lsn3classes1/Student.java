@@ -5,34 +5,73 @@ package org.launchcode.java.demos.lsn3classes1;
 
 public class Student {
 
-    private String name;
-    public void setName(String name) {
-        this.name = name;
+    public static void main (String[] args){
+        Student newStudent = new Student("Monica", 1, 1,4.0);
     }
+    //variables
+
+    private static int nextStudentId = 1;
+    private String name;
+    private int studentId;
+    private int numberOfCredits;
+    private double gpa;
+
+    //constructors
+
+    public Student(String name, int studentId, int numberOfCredits, double gpa) {
+        this.name = name;
+        this.studentId = studentId;
+        this.numberOfCredits = numberOfCredits;
+        this.gpa = gpa;
+    }
+
+    public Student(String name) {
+        this(name, nextStudentId, 1, 4.0);
+        nextStudentId++;
+    }
+
+    public String studentInfo() {
+        return (this.name + " has a GPA of: " + this.gpa);
+    }
+
+    public static int getNextStudentId() {
+        return nextStudentId;
+    }
+
+    public static void setNextStudentId(int nextStudentId) {
+        Student.nextStudentId = nextStudentId;
+    }
+
     public String getName() {
         return name;
     }
-    private int studentId;
-    public void setStudentId(int studentId) {
-        this.studentId = studentId;
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getStudentId() {
         return studentId;
     }
-    private int numberOfCredits = 0;
-    public void setNumberOfCredits(int numberOfCredits) {
-        this.numberOfCredits = numberOfCredits;
+
+    public void setStudentId(int studentId) {
+        this.studentId = studentId;
     }
+
     public int getNumberOfCredits() {
         return numberOfCredits;
     }
-    private double gpa = 0.0;
-    public void setGpa(double gpa) {
-        this.gpa = gpa;
+
+    public void setNumberOfCredits(int numberOfCredits) {
+        this.numberOfCredits = numberOfCredits;
     }
+
     public double getGpa() {
         return gpa;
     }
 
+    public void setGpa(double gpa) {
+        this.gpa = gpa;
+    }
 }
+
