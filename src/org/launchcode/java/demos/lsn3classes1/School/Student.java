@@ -1,4 +1,4 @@
-package org.launchcode.java.demos.lsn3classes1;
+package org.launchcode.java.demos.lsn3classes1.School;
 
 // Start working here with your Student class.
 // To instantiate the Student class, add your code to the main in the file, SchoolPractice.
@@ -6,8 +6,9 @@ package org.launchcode.java.demos.lsn3classes1;
 public class Student {
 
     public static void main (String[] args){
-        Student newStudent = new Student("Monica", 1, 1,4.0);
+        Student myself = new Student ("Monica", 1, 1, 4.0);
     }
+
     //variables
 
     private static int nextStudentId = 1;
@@ -15,6 +16,7 @@ public class Student {
     private int studentId;
     private int numberOfCredits;
     private double gpa;
+
 
     //constructors
 
@@ -25,22 +27,19 @@ public class Student {
         this.gpa = gpa;
     }
 
-    public Student(String name) {
-        this(name, nextStudentId, 1, 4.0);
+    public Student(String name, int studentId) {
+        this(name, studentId, 0, 0);
         nextStudentId++;
     }
 
-    public String studentInfo() {
-        return (this.name + " has a GPA of: " + this.gpa);
+    public Student(String name) {
+        this(name, nextStudentId);
     }
 
-    public static int getNextStudentId() {
-        return nextStudentId;
+    public String studentInfo(){
+        return (this.name + "has a GPA of: " + this. gpa);
     }
 
-    public static void setNextStudentId(int nextStudentId) {
-        Student.nextStudentId = nextStudentId;
-    }
 
     public String getName() {
         return name;
@@ -54,7 +53,7 @@ public class Student {
         return studentId;
     }
 
-    public void setStudentId(int studentId) {
+    private void setStudentId(int studentId) {
         this.studentId = studentId;
     }
 
