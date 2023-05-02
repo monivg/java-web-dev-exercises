@@ -1,26 +1,32 @@
 package org.launchcode.java.restaurantmenu;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class MenuItem {
     // first declare fields
     private String name;
-
-    private boolean newMenuItem = true;
     private String description;
-    private double price;
+    private Double price;
     private String category;
-    private Date dateAdded;
+    private boolean isNew;
 
 
-    // second constructors
-    public MenuItem(String name, boolean newMenuItem, String description, double price, String category) {
+    // 2 constructors
+    public MenuItem(String name, String description, double price) {
         this.name = name;
-        this.newMenuItem = newMenuItem;
+        this.description = description;
+        this.price = price;
+        this.category = "Not Category";
+        this.isNew = false;
+    }
+
+    public MenuItem(String name, String description, double price, String category, boolean isNew) {
+        this.name = name;
         this.description = description;
         this.price = price;
         this.category = category;
-        this.dateAdded = new Date ();
+        this.isNew = isNew;
     }
 
     // create getter/setter
@@ -30,27 +36,22 @@ public class MenuItem {
     }
 
     public void setName(String name) {
-
         this.name = name;
     }
 
     public String getDescription() {
-
         return description;
     }
 
     public void setDescription(String description) {
-
         this.description = description;
     }
 
     public double getPrice() {
-
         return price;
     }
 
     public void setPrice(double price) {
-
         this.price = price;
     }
 
@@ -59,33 +60,45 @@ public class MenuItem {
     }
 
     public void setCategory(String category) {
-
         this.category = category;
     }
 
-    public Date getDateAdded() {
-
-        return dateAdded;
+    public boolean getIsNew() {
+        return isNew;
     }
 
-    public void setDateAdded(Date dateAdded) {
-
-        this.dateAdded = dateAdded;
+    public void  setIsNew() {
+        this.isNew = isNew;
     }
 
     //4th add methods
 
-    //2. New Item Method
-    public void notNewItem(){
-        newMenuItem = false;
-        System.out.println(this.name);
-    }
-    public void newItem(){
-        newMenuItem = true;
-        System.out.println(this.name + "New");
+    @Override
+    public String toString() {
+        String returnMenuItem = "";
+        returnMenuItem += "Item Name:" + this.name + "\n";
+        returnMenuItem += "Description:" + this.description + "\n";
+        returnMenuItem += "Price:" + this.price + "\n";
+        returnMenuItem += "Category:" + this.category + "\n";
+        returnMenuItem += "Item is new:" + this.isNew + "\n";
+
+        return returnMenuItem;
     }
 
-    //4. Print Out Single Menu Item or Full Menu Item
-    //5. Determine if two menu items are equal
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == this) return  true;
+        if (!(obj instanceof MenuItem)){
+            return false;
+        }
+        MenuItem menuItem = (MenuItem) obj;
+        if (menuItem.name.equals(this.name)
+                && menuItem.description.equals(this.description)
+                && menuItem.price.equals(this.price)
+                && menuItem.category.equals(this.category))
+            return true;
+        else return false;
+
+    }
 
 }
